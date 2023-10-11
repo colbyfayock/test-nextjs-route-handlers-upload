@@ -14,6 +14,11 @@ export async function POST(request: Request) {
 
   const results = await new Promise((resolve, reject) => {
     cloudinary.uploader.upload_stream({
+      format: "webp",
+      transformation: {
+        format: "webp",
+        quality: "auto",
+      },
       tags: ['nextjs-route-handlers-upload-sneakers']
     }, function (error, result) {
       if (error) {
